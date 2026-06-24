@@ -1,0 +1,99 @@
+/* src/styles/global.css */
+
+/* Design Tokens & Theme Variables */
+:root {
+  /* Color Palette */
+  --bg-primary: #0f172a;       /* Deep slate base */
+  --bg-secondary: #1e293b;     /* Slate card background */
+  --bg-tertiary: #334155;      /* Elevated slate elements */
+  
+  --text-primary: #f8fafc;     /* Clean white/slate text */
+  --text-secondary: #94a3b8;   /* Muted slate text */
+  --text-tertiary: #64748b;    /* Darker muted text */
+
+  --accent-primary: #06b6d4;   /* Cyan highlight */
+  --accent-secondary: #10b981; /* Emerald success highlight */
+  --accent-hover: #0891b2;     /* Darker cyan hover */
+  --accent-success-hover: #059669;
+
+  --error-color: #f43f5e;      /* Soft rose/red error */
+  --error-bg: rgba(244, 63, 94, 0.1);
+  --success-bg: rgba(16, 185, 129, 0.1);
+
+  /* Spacing Scale */
+  --spacing-xs: 0.25rem;       /* 4px */
+  --spacing-sm: 0.5rem;        /* 8px */
+  --spacing-md: 1rem;          /* 16px */
+  --spacing-lg: 1.5rem;        /* 24px */
+  --spacing-xl: 2.5rem;        /* 40px */
+  
+  /* Borders and Shadow Primitives */
+  --border-radius-sm: 0.375rem; /* 6px */
+  --border-radius-md: 0.75rem;  /* 12px */
+  --border-radius-lg: 1rem;     /* 16px */
+  --border-radius-round: 9999px;
+
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-focus: var(--accent-primary);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(30, 41, 59, 0.6);
+  --glass-backdrop-filter: blur(12px);
+}
+
+/* Reset and Global Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
