@@ -125,3 +125,44 @@ export async function signup(username: string, password: string): Promise<Signup
     body: JSON.stringify({ username, password }),
   });
 }
+
+export interface LoginResponse {
+  token: string;
+  type: string;
+  expiresAt: string;
+}
+
+/**
+ * Authenticate a user and return session details
+ */
+export async function login(username: string, password: string): Promise<LoginResponse> {
+  return fetchAPI<LoginResponse>('/auth/login', {
+    method: 'POST',
+    body: JSON.stringify({ username, password }),
+  });
+}
+
+export interface UserSettingsResponse {
+  username: string;
+  weeklyLimit: number;
+}
+
+/**
+ * Retrieve the current weekly time limit settings for the authenticated user
+ */
+export async function getSettings(): Promise<UserSettingsResponse> {
+  return fetchAPI<UserSettingsResponse>('/user/settings', {
+    method: 'GET',
+  });
+}
+
+/**
+ * Update the weekly time limit settings for the authenticated user
+ */
+export async function updateSettings(weeklyLimit: number): Promise<UserSettingsResponse> {
+  return fetchAPI<UserSettingsResponse>('/user/settings', {
+    method: 'PUT',
+    body: JSON.stringify({ weeklyLimit }),
+  });
+}
+
